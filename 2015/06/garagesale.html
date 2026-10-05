@@ -14,14 +14,14 @@
 
   <script type="text/javascript" src="/javascripts/jquery.min-1.71.js"></script>
   <script type="text/javascript" src="/javascripts/script.js"></script>
-  <script type="text/javascript" src="/javascripts/leaflet.js"></script> 
+  <script type="text/javascript" src="/javascripts/leaflet.js"></script>
   <script type="text/javascript">
     L.Icon.Default.imagePath='/images/leaflet/';
   </script>
 
   <title>Neighborhood Garage Sale Friday June 19th - Sat June 20th</title>
   <meta name="description" content="Indian Hills Neighborhood Garage Sale,
-                                    Friday June 19th-Sat June 20th">
+                                     Friday June 19th-Sat June 20th">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
@@ -39,7 +39,7 @@
       <div id="map"></div>
 
       <p>We are hosting a Neighborhood Garage Sale on Friday June 19th and
-      Saturday June 20th in Indian Hills. 
+      Saturday June 20th in Indian Hills.
 
     <table style="padding:12px; table-border=1px width:100%" border=1
            id='locations'>
@@ -65,7 +65,7 @@
     Dr.</td><td>Baby swing, car seat, infant boys clothes, toys, NASCAR
     Die-Cast & Misc, Vintage costume jewelry, neon bar lights &
         mirrors.</td><td>June 19th, June 20th</td></tr>
-    
+
     <tr><td class=location lat='38.93245' lon='-95.24978'>1207 west 29th
     court</td><td>Furniture, housewares, lamps, kitchen items, jewelry, makeup,
         purses, shoes and clothes.</td><td>June 20th</td></tr>
@@ -74,71 +74,65 @@
     St.</td><td>Furniture, Housewares, Furnishings, Children’s Clothing,
     Christmas Decorations, DVDs, Miscellany</td><td>June 19th, June
         20th</td></tr>
-    
+
      <tr><td class=location lat='38.93675' lon='-95.24953'>2553
      Missouri.</td><td>    Honda mini tiller, color laser printer, kitchen
-     blender, boys clothes (NB-4T), breast pump, queen size mattress
-         (FREE!)</td><td>June 20th</td></tr>
+      blender, boys clothes (NB-4T), breast pump, queen size mattress
+          (FREE!)</td><td>June 20th</td></tr>
 
-     
+
     <tr><td class=location lat='38.93519' lon='-95.24759'>1019 W. 27th St</td>
       <td>Oak desk chair
-    <a href=http://images.craigslist.org/00404_hdteJ3hiteM_600x450.jpg><img src=http://images.craigslist.org/00404_hdteJ3hiteM_50x50c.jpg></a>,
-    wooden rocker <a href=http://images.craigslist.org/00h0h_4VxDT6fKBpU_600x450.jpg><img src=http://images.craigslist.org/00h0h_4VxDT6fKBpU_50x50c.jpg></a>,wood high chair <a href=http://images.craigslist.org/00A0A_eSef5AOuWzN_600x450.jpg><img src=http://images.craigslist.org/00A0A_eSef5AOuWzN_50x50c.jpg></a>,
+    <a href="https://images.craigslist.org/00404_hdteJ3hiteM_600x450.jpg"><img src="https://images.craigslist.org/00404_hdteJ3hiteM_50x50c.jpg"></a>,
+    wooden rocker <a href="https://images.craigslist.org/00h0h_4VxDT6fKBpU_600x450.jpg"><img src="https://images.craigslist.org/00h0h_4VxDT6fKBpU_50x50c.jpg"></a>, wood high chair <a href="https://images.craigslist.org/00h0h_7pS9j0J7VgI_600x450.jpg"><img src="https://images.craigslist.org/00h0h_7pS9j0J7VgI_50x50c.jpg"></a>,
     and cradle, desk, sleeping bag, life vests, turntable & LPs, CDs, VHS tapes, books, toys, play house, vintage glassware</td><td>June 19th, June 20th</td></tr>
-     
-</table>
 
+    </table>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
 
   var map = L.map('map').setView([35,-95.2461], 16);
-  var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-  var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+  var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+  var osmAttrib='Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors';
   var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 20, attribution: osmAttrib});
   map.addLayer(osm);
 
   $('table tr').each(function() {
 
-latlon= $(this).children().first()
+   latlon = $(this).children().first();
 
-
-  if (latlon.attr('class') == 'location') {
-//  alert(latlon.html())  
-  addr = latlon.html()
-  var lat = latlon.attr('lat') 
-  var lon = latlon.attr('lon') 
-  var items = $(this).html() 
-  marker =  L.marker([lat, lon ]).addTo(map);
-  marker.bindPopup("<b>"+addr+"</b><p>"+items+"</p>").openPopup();
-  }
+   if (latlon.attr('class') == 'location') {
+    addr = latlon.html();
+    var lat = latlon.attr('lat');
+    var lon = latlon.attr('lon');
+    var items = $(this).html();
+    marker =  L.marker([lat, lon ]).addTo(map);
+    marker.bindPopup("<b>"+addr+"</b><p>"+items+"</p>").openPopup();
+   }
 
   });
 
   map.setView([38.9349,-95.2461], 16);
-                        
+
     </script>
 
-      <p>Join the <a href=https://www.facebook.com/events/679269285536115/>Facebook Event</a></p>    
-<p>Find the <a href=http://lawrence.craigslist.org/gms/5040118064.html>Craigslist Advertising Here</a></p>
+      <p>Join the <a href="https://www.facebook.com/events/679269285536115/">Facebook Event</a></p>
+      <p>Find the <a href="https://lawrence.craigslist.org/gms/5040118064.html">Craigslist Advertising Here</a></p>
 
     </div>
 
-
-
     <div id="container">
       <p class="tagline">Sign up here to be included as a seller on the website listing</p>
-      
+
       <div id="main" role="main"> --
 <iframe src="https://docs.google.com/forms/d/1IUPqalVKlUquZu2U3epFTXrBbMhOWnD0OqrntQXpnsQ/viewform?embedded=true" --
         width="600" height="500" frameborder="0" marginheight="0" --
         marginwidth="0">Loading...</iframe> --
       </div> --
 
-      <p class="tagline">join the Mailing List (ListServ) for general updates: <a href="https://groups.google.com/forum/#!forum/indian-hills-neighborhood-association">https://groups.google.com/forum/#!forum/indian-hills-neighborhood-association</a>
+      <p class="tagline">join the Mailing List (ListServ) for general updates: <a href="https://groups.google.com/forum/#!forum/indian-hills-neighborhood-association">https://groups.google.com/forum/#!forum/indian-hills-neighborhood-association</a></p>
 
 </div>
-
 
 </body>
 </html>

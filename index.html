@@ -1,107 +1,337 @@
 <!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Indian Hills Neighborhood Association | Lawrence, Kansas</title>
+  <meta name="description" content="Website for the Indian Hills Neighborhood Association in Lawrence, Kansas.">
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="javascripts/script.js"></script>
 
-  <title>Indian Hills Neighborhood Association, Lawrence Kansas</title>
-  <meta name="description" content="Website for the Indian Hills Neighborhood Association, Lawrence Kansas">
+  <style>
+    :root {
+      --ihna-green: #1f4d2f;
+      --ihna-gold: #d9b44a;
+      --ihna-cream: #f8f5ee;
+      --ihna-text: #243127;
+      --ihna-border: #d9d3c7;
+      --ihna-link: #1d5a38;
+    }
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+    * { box-sizing: border-box; }
 
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(180deg, #f3efe7 0%, #f7f4ee 100%);
+      color: var(--ihna-text);
+    }
+
+    .wrapper {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 18px 40px;
+    }
+
+    .site-header {
+      max-width: 620px;
+      margin: 0 auto 18px;
+      padding: 16px 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--ihna-border);
+      border-bottom: 4px solid var(--ihna-gold);
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(36, 49, 39, 0.08);
+    }
+
+    .site-header img {
+      display: block;
+      max-width: 100%;
+      width: 360px;
+      margin: 0 auto;
+      height: auto;
+    }
+
+    .tagline {
+      margin: 0 0 20px;
+      text-align: center;
+      font-size: 1.05rem;
+      color: #000;
+      font-weight: 600;
+    }
+
+    .content-card {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--ihna-border);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(36, 49, 39, 0.06);
+      padding: 28px 24px;
+      margin-bottom: 22px;
+    }
+
+    h1, h2, h3 {
+      color: var(--ihna-green);
+      margin-top: 0;
+      line-height: 1.3;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 2.8vw, 2.7rem);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.45rem, 2vw, 2rem);
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    a {
+      color: var(--ihna-link);
+      text-decoration: underline;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: none;
+    }
+
+    .link-list {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .link-list li + li {
+      margin-top: 8px;
+    }
+
+    .meeting-card {
+      background: linear-gradient(135deg, #f7f2db, #fffdf7);
+    }
+
+    .meeting-details {
+      margin-top: 12px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--ihna-gold);
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 6px;
+    }
+
+    .meeting-details strong {
+      display: block;
+      color: var(--ihna-green);
+      margin-bottom: 6px;
+    }
+
+    .social-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .social-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(36, 49, 39, 0.08);
+    }
+
+    .social-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .mailing-list-form {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(36, 49, 39, 0.12);
+    }
+
+    .mailing-list-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--ihna-green);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    input[type="email"] {
+      flex: 1 1 240px;
+      min-width: 0;
+      padding: 12px 14px;
+      border: 1px solid var(--ihna-border);
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button,
+    input[type="submit"] {
+      appearance: none;
+      border: none;
+      border-radius: 8px;
+      background: var(--ihna-green);
+      color: #fff;
+      font-weight: 700;
+      padding: 12px 18px;
+      cursor: pointer;
+    }
+
+    button:hover,
+    input[type="submit"]:hover,
+    button:focus,
+    input[type="submit"]:focus {
+      background: #163b27;
+    }
+
+    .site-footer {
+      margin-top: 28px;
+      padding: 24px 18px 12px;
+      border-top: 1px solid rgba(36, 49, 39, 0.14);
+      background: rgba(255, 255, 255, 0.35);
+      text-align: center;
+      color: #425248;
+      font-size: 0.95rem;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    .site-footer .owner {
+      margin-bottom: 10px;
+    }
+
+    .site-footer .footer-title {
+      display: inline-block;
+      margin-bottom: 6px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .site-footer .footer-links {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+    }
+
+    .site-footer .footer-links a {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .site-footer .copyright {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 640px) {
+      .wrapper {
+        padding: 18px 14px 28px;
+      }
+
+      .content-card {
+        padding: 20px 16px;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+
+      input[type="email"],
+      input[type="submit"] {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
   <div class="wrapper">
-    <header>
-      <center><img alt="Indian Hills  Neighborhood Association, Lawrence Kansas" width="400px" src="images/indianhills.png"/>
-      </CENTER>
-
+    <header class="site-header">
+      <img src="images/indianhills.png" alt="Indian Hills Neighborhood Association, Lawrence Kansas">
     </header>
 
-    <div id="container">
-      <p class="tagline">Website for the Indian Hills Neighborhood Association, Lawrence Kansas</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
+    <p class="tagline">Website for the Indian Hills Neighborhood Association, Lawrence Kansas</p>
+
+    <main>
+      <section class="content-card">
+        <h1>Welcome to the Indian Hills Neighborhood Association</h1>
+        <p>We are the first neighborhood association in Lawrence, Kansas.</p>
+
+        <ul class="link-list">
+          <li>
+            Read more about Lawrence neighborhood associations:
+            <a href="https://www.lawrenceks.gov/City/PDS/Neighborhood-Association" target="_blank" rel="noopener noreferrer">Lawrence Neighborhood Associations</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="content-card meeting-card">
+        <h2>Neighborhood Meetings</h2>
+        <div class="meeting-details">
+          <strong>Tuesday, October 6, 2026</strong>
+          <span>5:30 PM - 6:30 PM</span><br>
+          <span>Billy Mills Middle School Cafeteria</span>
         </div>
-        <span class="blc"></span><span class="trc"></span>
+        <div class="meeting-details" style="margin-top: 14px;">
+          <strong>Tuesday, November 3, 2026</strong>
+          <span>5:30 PM - 6:30 PM</span><br>
+          <span>Billy Mills Middle School Cafeteria</span>
         </div>
-        <article class="markdown-body">
-          <h3>
-<a name="welcome-to-the-indian-hills-neighborhood-association-lawrence-kansas" class="anchor" href="#welcome-to-the-indian-hills-neighborhood-association-lawrence-kansas"><span class="octicon octicon-link"></span></a>Welcome to the Indian Hills Neighborhood Association, Lawrence Kansas</h3>
+      </section>
 
-<p>We are the first neighborhood association in Lawrence Kansas. </p>
-<ul>
-<li>Read more about the Lawrence Neighborhood Associations
-  : <a href="https://www.lawrenceks.gov/City/PDS/Neighborhood-Association">https://www.lawrenceks.gov/City/PDS/Neighborhood-Association</a></li>
-</ul>
+      <section class="content-card">
+        <h2>Social Media</h2>
+        <ul class="social-list">
+          <li>
+            <a href="https://nextdoor.com/neighborhood/indianhillslawrence--lawrence--ks/" target="_blank" rel="noopener noreferrer">Nextdoor</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/pages/Indian-Hills-Neighborhood-Association/394091310635729" target="_blank" rel="noopener noreferrer">Facebook</a>
+          </li>
+          <li>
+            <a href="https://groups.google.com/forum/#!forum/indian-hills-neighborhood-association" target="_blank" rel="noopener noreferrer">Mailing List (ListServ)</a>
+          </li>
+        </ul>
 
-<div><h2>Indian Hills Association Neighborhood Meeting</h2>
-<p>Tuesday, October 6, 2026 <br>
-  5:30 PM - 6:30 PM
-  <br>
-  Billy Mills Middle School Cafeteria
-</p>
-</div>
+        <form class="mailing-list-form" action="https://groups.google.com/group/indian-hills-neighborhood-association/boxsubscribe" id="formconf" method="post">
+          <label for="emailconf">Email address</label>
+          <div class="form-row">
+            <input type="email" name="email" id="emailconf" placeholder="you@example.com" required>
+            <input type="submit" value="Subscribe">
+          </div>
+        </form>
+      </section>
+    </main>
 
-<h2>
-<a name="social-media" class="anchor" href="#social-media"><span class="octicon octicon-link"></span></a>Social Media</h2>
-
-<ul>
-<li>Nextdoor : <a href="https://nextdoor.com/neighborhood/indianhillslawrence--lawrence--ks/">Click here</a>
-</li>
-  
-<li>Our Facebook <a href="https://www.facebook.com/pages/Indian-Hills-Neighborhood-Association/394091310635729">Click here</a>
-</li>
-
-<li>Mailing List (ListServ) : <a href="https://groups.google.com/forum/#!forum/indian-hills-neighborhood-association">Click here to view discussions</a>
-
-  <form action="http://groups.google.com/group/indian-hills-neighborhood-association/boxsubscribe" id="formconf" onsubmit="msgbox()">
-  Email: <input type=text name=email id="emailconf">
-   <input type="submit" value="Subscribe">
-  </form>
-
-</li>
-</ul>
-        </article>
-      </div>
-    </div>
-    <footer>
+    <footer class="site-footer">
       <div class="owner">
-      <p><a href="https://github.com/IndianHillsLawrence" class="avatar"><img src="https://avatars3.githubusercontent.com/u/8169749?s=60" width="48" height="48"/></a> <a href="https://github.com/IndianHillsLawrence">IndianHillsLawrence</a> maintains <a href="https://github.com/IndianHillsLawrence/website">Indian Hills Neighborhood Association, Lawrence Kansas</a></p>
-
-
+        <p class="footer-title">Indian Hills Neighborhood Association</p>
+        <p>Lawrence, Kansas</p>
       </div>
-      <div class="creds">
-        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      <div class="footer-links">
+        <a href="https://github.com/IndianHillsLawrence" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://nextdoor.com/neighborhood/indianhillslawrence--lawrence--ks/" target="_blank" rel="noopener noreferrer">Nextdoor</a>
+        <a href="https://www.facebook.com/pages/Indian-Hills-Neighborhood-Association/394091310635729" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
+      <p class="copyright">© 2026 Indian Hills Neighborhood Association</p>
     </footer>
   </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/IndianHillsLawrence/website/tarball/master" class="tar">tar</a><a href="https://github.com/IndianHillsLawrence/website/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
-
-            <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-52858615-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
 
 </body>
 </html>

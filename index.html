@@ -241,6 +241,7 @@
 
     @media (max-width: 640px) {
       .wrapper {
+        width: auto;
         padding: 18px 14px 28px;
       }
 
@@ -249,12 +250,21 @@
       }
 
       .form-row {
-        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 8px;
       }
 
-      input[type="email"],
+      input[type="email"] {
+        flex: 1 1 auto;
+        width: auto;
+        padding: 10px 12px;
+      }
+
       input[type="submit"] {
-        width: 100%;
+        flex: 0 0 auto;
+        width: auto;
+        padding: 10px 12px;
+        white-space: nowrap;
       }
     }
   </style>

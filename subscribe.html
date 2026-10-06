@@ -5,13 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Join the Indian Hills Mailing List</title>
     <style>
+      :root {
+        --ihna-green: #1f4d2f;
+        --ihna-gold: #d9b44a;
+        --ihna-cream: #f8f5ee;
+        --ihna-text: #26332a;
+      }
+
       body {
         max-width: 760px;
         margin: 32px auto;
         padding: 0 20px;
-        color: #26332a;
+        color: var(--ihna-text);
         font-family: Arial, sans-serif;
         line-height: 1.6;
+      }
+
+      .button-link {
+        display: inline-block;
+        padding: 12px 18px;
+        border-radius: 8px;
+        background: var(--ihna-green);
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(31, 77, 47, 0.2);
+      }
+
+      .button-link:hover,
+      .button-link:focus {
+        background: #163b27;
+        color: #fff;
+        text-decoration: none;
       }
 
       .signup-form {
@@ -23,7 +48,8 @@
   </head>
   <body>
     <h1>Join the Indian Hills mailing list</h1>
-    <p>Enter your email address below to request neighborhood notices. A list manager will review your request and add you to the mailing list. You do not need to sign in to Google to submit this form. We will contact you if we need anything else.</p>
+    <p>Enter your email address to request neighborhood notices, meeting updates, and community announcements. A list manager will review your request and add you to the mailing list. You do not need to sign in to Google to submit this form. We will contact you if we need anything else.</p>
+    <p><a class="button-link" href="https://docs.google.com/forms/d/e/1FAIpQLSf1jhB8aT7YlSWwZ2YY4vqrOhVYoWbbRek1bxTcdxTz_sDBdg/viewform" target="_blank" rel="noopener noreferrer">Join the mailing list</a></p>
     <iframe
       class="signup-form"
       title="Indian Hills mailing list signup form"

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 1000" fill="none">
+  <defs>
+    <linearGradient id="hill" x1="230" y1="720" x2="230" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#78905B" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#78905B" stop-opacity=".04"/>
+    </linearGradient>
+    <g id="leaf">
+      <path d="M0-16c4 6 9 8 14 6-2 5-1 10 4 14-6 1-10 4-12 10-3-5-8-7-14-5 2-5 1-10-3-14 6 0 9-4 11-11Z" fill="currentColor"/>
+      <path d="M-10 3 10-4" stroke="#80543A" stroke-opacity=".35" stroke-width="1.3" stroke-linecap="round"/>
+    </g>
+    <g id="pumpkin">
+      <path d="M0 0c-17-18-48-12-51 14-3 23 12 37 51 37s54-14 51-37C48-12 17-18 0 0Z" fill="#D77B35" fill-opacity=".19" stroke="#A85E30" stroke-opacity=".3" stroke-width="2.5"/>
+      <path d="M0 2c-10 8-15 25-10 47m10-47c10 8 15 25 10 47" stroke="#A85E30" stroke-opacity=".28" stroke-width="2.5"/>
+      <path d="M0 0c-1-9 3-15 10-20" stroke="#65734A" stroke-opacity=".42" stroke-width="5" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <path d="M0 790c67-56 133-55 213-9 72 42 139 43 247-4v223H0V790Z" fill="url(#hill)"/>
+  <path d="M0 894c88-39 156-36 235-2 79 33 151 34 225 3v105H0V894Z" fill="#9E7647" fill-opacity=".07"/>
+
+  <g stroke="#80543A" stroke-opacity=".13" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-7 866C29 670 28 456 8 241-1 143-9 72-18 12" stroke-width="21"/>
+    <path d="M13 590c-23-92-38-172-51-275m52 109c36-71 61-132 79-208M5 544c35-43 68-76 112-101M-2 298c-19-78-41-144-72-203" stroke-width="9"/>
+    <path d="M467 872c-39-213-43-429-15-642 13-98 30-168 51-228" stroke-width="21"/>
+    <path d="M456 580c-30-80-55-153-70-250m67 133c-37-66-72-124-112-183m124 359c-41-42-80-76-128-97" stroke-width="9"/>
+  </g>
+
+  <g opacity=".68">
+    <use href="#leaf" transform="translate(23 87) rotate(-22) scale(1.2)" color="#C96D3A"/>
+    <use href="#leaf" transform="translate(78 133) rotate(18)" color="#D99A3D"/>
+    <use href="#leaf" transform="translate(37 218) rotate(12) scale(1.1)" color="#B75537"/>
+    <use href="#leaf" transform="translate(117 249) rotate(-24)" color="#D58237"/>
+    <use href="#leaf" transform="translate(20 357) rotate(-35)" color="#D99138"/>
+    <use href="#leaf" transform="translate(76 423) rotate(22) scale(1.1)" color="#B95B3A"/>
+    <use href="#leaf" transform="translate(21 541) rotate(-12)" color="#D89B42"/>
+    <use href="#leaf" transform="translate(110 614) rotate(28)" color="#C96D3A"/>
+    <use href="#leaf" transform="translate(58 704) rotate(-22)" color="#D99138"/>
+
+    <use href="#leaf" transform="translate(435 92) rotate(28) scale(1.2)" color="#B75537"/>
+    <use href="#leaf" transform="translate(385 143) rotate(-18)" color="#D99A3D"/>
+    <use href="#leaf" transform="translate(446 237) rotate(-12) scale(1.1)" color="#C96D3A"/>
+    <use href="#leaf" transform="translate(366 279) rotate(32)" color="#D58237"/>
+    <use href="#leaf" transform="translate(443 374) rotate(35)" color="#D99138"/>
+    <use href="#leaf" transform="translate(394 452) rotate(-24) scale(1.1)" color="#B95B3A"/>
+    <use href="#leaf" transform="translate(444 561) rotate(12)" color="#D89B42"/>
+    <use href="#leaf" transform="translate(353 631) rotate(-28)" color="#C96D3A"/>
+    <use href="#leaf" transform="translate(413 729) rotate(22)" color="#D99138"/>
+  </g>
+
+  <g opacity=".48">
+    <use href="#leaf" transform="translate(179 198) rotate(22) scale(.72)" color="#D99138"/>
+    <use href="#leaf" transform="translate(287 317) rotate(-26) scale(.7)" color="#B95B3A"/>
+    <use href="#leaf" transform="translate(220 491) rotate(14) scale(.68)" color="#D89B42"/>
+    <use href="#leaf" transform="translate(315 564) rotate(-20) scale(.72)" color="#C96D3A"/>
+    <use href="#leaf" transform="translate(164 683) rotate(28) scale(.7)" color="#D99138"/>
+  </g>
+
+  <g opacity=".78">
+    <use href="#pumpkin" transform="translate(98 921) scale(.66)"/>
+    <use href="#pumpkin" transform="translate(364 930) scale(.6)"/>
+  </g>
+</svg>

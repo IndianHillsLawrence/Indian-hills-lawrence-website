@@ -66,6 +66,32 @@
       font-weight: 600;
     }
 
+    .section-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 22px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--ihna-border);
+      border-radius: 10px;
+    }
+
+    .section-nav a {
+      padding: 7px 12px;
+      border-radius: 6px;
+      color: var(--ihna-green);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .section-nav a:hover,
+    .section-nav a:focus {
+      background: var(--ihna-green);
+      color: #fff;
+    }
+
     .content-card {
       background: rgba(255, 255, 255, 0.75);
       border: 1px solid var(--ihna-border);
@@ -135,6 +161,47 @@
       background: linear-gradient(135deg, #f7f2db, #fffdf7);
     }
 
+    .event-details {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--ihna-gold);
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 6px;
+    }
+
+    .event-details summary {
+      color: var(--ihna-link);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .event-details-content {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: start;
+      margin-top: 14px;
+    }
+
+    .event-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .event-flyer-link {
+      display: block;
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto;
+    }
+
+    .event-flyer-preview {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--ihna-border);
+      border-radius: 6px;
+    }
+
     .meeting-details {
       margin-top: 12px;
       padding: 18px 20px;
@@ -155,28 +222,13 @@
       text-decoration: underline;
     }
 
-    .social-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .social-list li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(36, 49, 39, 0.08);
-    }
-
-    .social-list li:last-child {
-      border-bottom: 0;
-    }
-
     .site-footer {
       margin-top: 28px;
       padding: 24px 18px 12px;
-      border-top: 1px solid rgba(36, 49, 39, 0.14);
-      background: rgba(255, 255, 255, 0.35);
+      border-top: 4px solid var(--ihna-gold);
+      background: var(--ihna-green);
       text-align: center;
-      color: #425248;
+      color: #fff;
       font-size: 0.95rem;
       border-radius: 12px 12px 0 0;
     }
@@ -201,12 +253,45 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 8px 16px;
+      gap: 10px;
     }
 
     .site-footer .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 8px;
       color: #fff;
       font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .site-footer .footer-links a:hover,
+    .site-footer .footer-links a:focus {
+      color: var(--ihna-gold);
+      border-color: var(--ihna-gold);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .site-footer .footer-links a:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 3px;
+    }
+
+    .footer-link-icon {
+      display: block;
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+    }
+
+    .footer-email {
+      overflow-wrap: anywhere;
     }
 
     .site-footer .copyright {
@@ -225,6 +310,14 @@
         padding: 20px 16px;
       }
 
+      .event-details-content {
+        grid-template-columns: 1fr;
+      }
+
+      .event-flyer-link {
+        max-width: 220px;
+      }
+
     }
   </style>
 </head>
@@ -236,6 +329,14 @@
     </header>
 
     <p class="tagline">Website for the Indian Hills Neighborhood Association, Lawrence Kansas</p>
+
+    <nav class="section-nav" aria-label="Page sections">
+      <a href="#meetings">Meetings</a>
+      <a href="#survey">Survey</a>
+      <a href="#board-nominations">Nominations</a>
+      <a href="#listserv">ListServ</a>
+      <a href="#archive">Archive</a>
+    </nav>
 
     <main>
       <section class="content-card">
@@ -256,7 +357,25 @@
         <p><a class="button-link" href="land-acknowledgment.html">Read our Land Acknowledgment</a></p>
       </section>
 
-      <section class="content-card meeting-card">
+      <section class="content-card" id="fall-festival">
+        <h2>Neighborhood Fall Festival</h2>
+        <p>Saturday, October 17 at 4 p.m. — food, games, and fun for the neighborhood.</p>
+        <details class="event-details">
+          <summary>Get the details &amp; view the flyer</summary>
+          <div class="event-details-content">
+            <div class="event-copy">
+              <p>The Indian Hills Neighborhood is invited to a Neighborhood Fall Festival on Saturday, October 17, starting at 4 p.m.</p>
+              <p>This outdoor event will include food (hot dogs and a variety of side dishes), family-oriented games (relay races, cornhole, a basketball shooting contest, and more), and spaces for sitting and visiting. Dress for the weather!</p>
+              <p>The event is hosted by Southside Church of Christ at 1105 W. 25th Street (25th and Missouri), where neighbors come to vote.</p>
+            </div>
+            <a class="event-flyer-link" href="images/fall-festival-2026.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size Fall Festival flyer">
+              <img class="event-flyer-preview" src="images/fall-festival-2026.png" alt="Fall Festival flyer preview; select to open full size">
+            </a>
+          </div>
+        </details>
+      </section>
+
+      <section class="content-card meeting-card" id="meetings">
         <h2>Neighborhood Meetings</h2>
         <div class="meeting-details">
           <strong>Tuesday, October 6, 2026</strong>
@@ -272,31 +391,19 @@
         </div>
       </section>
 
-      <section class="content-card">
+      <section class="content-card" id="survey">
         <h2>Neighborhood Survey</h2>
         <p>We want to hear from neighbors about community priorities, concerns, and ideas for improving the Indian Hills neighborhood.</p>
         <p><a class="button-link" href="https://forms.gle/Tnnus8QQrAuistJ39" target="_blank" rel="noopener noreferrer">Take the neighborhood survey</a></p>
       </section>
 
-      <section class="content-card">
+      <section class="content-card" id="board-nominations">
         <h2>Board Nominations</h2>
         <p>Nominate yourself or a neighbor for the Indian Hills Neighborhood Association board by November 1, 2026. Voting runs November 3 through November 10.</p>
         <p><a class="button-link" href="https://docs.google.com/forms/d/e/1FAIpQLSekO9jkQVd8Qka-KB7tU_N5vrhN8577V9pUdxQyS_UW3xB75g/viewform" target="_blank" rel="noopener noreferrer">Open the board nomination form</a></p>
       </section>
 
-      <section class="content-card">
-        <h2>Social Media</h2>
-        <ul class="social-list">
-          <li>
-            <a href="https://nextdoor.com/neighborhood/indianhillslawrence--lawrence--ks/" target="_blank" rel="noopener noreferrer">Nextdoor</a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/pages/Indian-Hills-Neighborhood-Association/394091310635729" target="_blank" rel="noopener noreferrer">Facebook</a>
-          </li>
-        </ul>
-      </section>
-
-      <section class="content-card">
+      <section class="content-card" id="listserv">
         <h2>Mailing List (ListServ)</h2>
         <p>Receive neighborhood notices, meeting updates, and community announcements from the Indian Hills Neighborhood Association.</p>
         <p>Submit your email address to request updates. A list manager will review your request and add you to the mailing list. You do not need to sign in to Google.</p>
@@ -305,12 +412,7 @@
         </p>
       </section>
 
-      <section class="content-card">
-        <h2>Contact</h2>
-        <p>Contact the Indian Hills Neighborhood Association at <a href="mailto:indianhillslawrence@gmail.com">indianhillslawrence@gmail.com</a>.</p>
-      </section>
-
-      <section class="content-card">
+      <section class="content-card" id="archive">
         <h2>Website Archive</h2>
         <p>Browse past neighborhood event pages and the 27th Street Safe Streets project.</p>
         <p><a class="button-link" href="archive.html">Visit the website archive</a></p>
@@ -323,9 +425,21 @@
         <p>Lawrence, Kansas</p>
       </div>
       <div class="footer-links">
-        <a href="https://github.com/IndianHillsLawrence" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://nextdoor.com/neighborhood/indianhillslawrence--lawrence--ks/" target="_blank" rel="noopener noreferrer">Nextdoor</a>
-        <a href="https://www.facebook.com/pages/Indian-Hills-Neighborhood-Association/394091310635729" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://github.com/IndianHillsLawrence/indian-hills-lawrence-website" target="_blank" rel="noopener noreferrer" aria-label="Indian Hills Neighborhood Association website repository on GitHub (opens in a new tab)">
+          <img class="footer-link-icon" src="images/icons/github.svg" alt="">
+        </a>
+        <a href="https://nextdoor.com/neighborhood/indianhillslawrence--lawrence--ks/" target="_blank" rel="noopener noreferrer" aria-label="Indian Hills Neighborhood Association on Nextdoor (opens in a new tab)">
+          <img class="footer-link-icon" src="images/icons/nextdoor.svg" alt="">
+        </a>
+        <a href="https://www.facebook.com/pages/Indian-Hills-Neighborhood-Association/394091310635729" target="_blank" rel="noopener noreferrer" aria-label="Indian Hills Neighborhood Association on Facebook (opens in a new tab)">
+          <img class="footer-link-icon" src="images/icons/facebook.svg" alt="">
+        </a>
+        <a class="footer-email" href="mailto:indianhillslawrence@gmail.com" aria-label="Email Indian Hills Neighborhood Association">
+          <svg class="footer-link-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>indianhillslawrence@gmail.com</span>
+        </a>
       </div>
       <p class="copyright">© 2026 Indian Hills Neighborhood Association</p>
     </footer>

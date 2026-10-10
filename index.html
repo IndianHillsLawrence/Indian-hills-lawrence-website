@@ -16,9 +16,9 @@
     :root {
       --ihna-green: #1f4d2f;
       --ihna-gold: #d9b44a;
-      --ihna-cream: #f8f5ee;
-      --ihna-text: #243127;
-      --ihna-border: #d9d3c7;
+      --ihna-cream: #f4f2eb;
+      --ihna-text: #26342a;
+      --ihna-border: #e3e2d9;
       --ihna-link: #1d5a38;
     }
 
@@ -28,34 +28,53 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
-      background: linear-gradient(180deg, #f3efe7 0%, #f7f4ee 100%);
+      background: var(--ihna-cream);
       color: var(--ihna-text);
     }
 
+    body.seasonal-fall {
+      --ihna-gold: #d58b32;
+      --ihna-cream: #fbf4e9;
+      --ihna-border: #eadbc8;
+      --ihna-link: #83421f;
+      position: relative;
+      isolation: isolate;
+      background: var(--ihna-cream);
+    }
+
+    body.seasonal-fall::before {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      background: url("images/fall-scene.svg") center bottom / cover no-repeat;
+      content: "";
+      opacity: 0.38;
+      pointer-events: none;
+    }
+
     .wrapper {
-      max-width: 980px;
+      width: 100%;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 24px 18px 40px;
+      padding: 24px 24px 40px;
     }
 
     .site-header {
-      max-width: 620px;
-      margin: 0 auto 18px;
-      padding: 16px 20px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid var(--ihna-border);
-      border-bottom: 4px solid var(--ihna-gold);
-      border-radius: 14px;
-      box-shadow: 0 8px 24px rgba(36, 49, 39, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 0 0 14px;
+      padding: 10px 0 18px;
+      border-bottom: 1px solid var(--ihna-border);
     }
 
     .site-logo-artwork {
       display: block;
-      width: 390px;
+      width: 240px;
       max-width: 100%;
       height: auto;
-      margin: 0 auto 12px;
+      margin: 0;
     }
 
     .site-logo-artwork img {
@@ -66,9 +85,10 @@
 
     .site-contact {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 4px 12px;
+      justify-content: flex-end;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
       margin: 0;
       font-size: 0.9rem;
       line-height: 1.4;
@@ -76,6 +96,7 @@
     }
 
     .site-contact a {
+      color: var(--ihna-link);
       text-decoration: none;
     }
 
@@ -84,39 +105,100 @@
       text-decoration: underline;
     }
 
+    .site-contact a:focus-visible {
+      outline: 2px solid var(--ihna-gold);
+      outline-offset: 2px;
+    }
+
     .section-nav {
       display: flex;
+      align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 8px;
-      margin: 0 auto 22px;
-      padding: 10px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid var(--ihna-border);
-      border-radius: 10px;
+      gap: 4px;
+      margin: 0 auto 20px;
+      padding: 0;
+    }
+
+    .section-nav-hint {
+      display: none;
     }
 
     .section-nav a {
-      padding: 7px 12px;
-      border-radius: 6px;
-      color: var(--ihna-green);
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      color: var(--ihna-link);
+      font-weight: 600;
       text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, color 0.15s ease;
     }
 
     .section-nav a:hover,
-    .section-nav a:focus {
-      background: var(--ihna-green);
-      color: #fff;
+    .section-nav a:focus-visible {
+      background: #e6c36a;
+      color: var(--ihna-link);
+      box-shadow: inset 0 0 0 1px #b8862d;
+    }
+
+    .section-nav a:focus-visible {
+      outline: 3px solid var(--ihna-gold);
+      outline-offset: 2px;
+    }
+
+    .seasonal-fall .section-nav {
+      padding: 4px;
+      border-radius: 14px;
+      background: rgba(244, 227, 204, 0.96);
+      box-shadow: 0 5px 16px rgba(73, 53, 33, 0.07);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .content-card {
-      background: rgba(255, 255, 255, 0.75);
+      background: #fff;
       border: 1px solid var(--ihna-border);
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(36, 49, 39, 0.06);
-      padding: 28px 24px;
-      margin-bottom: 22px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(36, 49, 39, 0.045);
+      padding: 26px;
+      margin: 0;
+    }
+
+    .welcome-card,
+    #fall-festival,
+    .standalone-button {
+      grid-column: 1 / -1;
+    }
+
+    .welcome-card {
+      padding: clamp(26px, 5vw, 48px);
+      padding-top: clamp(22px, 3.5vw, 36px);
+      background:
+        radial-gradient(ellipse at top right, rgba(217, 180, 74, 0.18), transparent 40%),
+        linear-gradient(135deg, #173d27, #285d39);
+      border: 0;
+      color: #f7f5ec;
+      box-shadow: 0 14px 32px rgba(25, 61, 39, 0.14);
+    }
+
+    .welcome-card h1,
+    .welcome-card h2,
+    .welcome-card h3 {
+      color: #f7dfa0;
+    }
+
+    .welcome-card h1 {
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      margin-bottom: 8px;
     }
 
     h1, h2, h3 {
@@ -126,7 +208,7 @@
     }
 
     h1 {
-      font-size: clamp(1.9rem, 2.8vw, 2.7rem);
+      font-size: clamp(1.8rem, 2.8vw, 2.7rem);
       margin-bottom: 12px;
       text-align: center;
     }
@@ -138,12 +220,12 @@
 
     .established-year {
       display: table;
-      margin: -4px auto 12px;
+      margin: -4px auto 24px;
       padding: 5px 12px;
-      border: 1px solid var(--ihna-gold);
+      border: 1px solid rgba(244, 213, 125, 0.8);
       border-radius: 999px;
-      background: var(--ihna-green);
-      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      color: #f7dfa0;
       font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 0.04em;
@@ -174,13 +256,28 @@
     }
 
     .standalone-button {
-      margin: 0 auto 22px;
-      text-align: center;
+      margin: 0;
     }
 
     .standalone-button .button-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
+      min-height: 64px;
+      border: 1px solid #dfc56f;
+      border-radius: 14px;
+      background: var(--ihna-green);
+      color: #f7dfa0;
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      box-shadow: 0 5px 14px rgba(36, 49, 39, 0.05);
+    }
+
+    .standalone-button .button-link:hover,
+    .standalone-button .button-link:focus-visible {
+      border-color: #b8862d;
+      background: #e6c36a;
+      color: var(--ihna-link);
     }
 
     .button-link:hover,
@@ -200,7 +297,7 @@
     }
 
     .meeting-card {
-      background: linear-gradient(135deg, #f7f2db, #fffdf7);
+      background: #f8f6ee;
     }
 
     .event-details {
@@ -223,6 +320,85 @@
       gap: 18px;
       align-items: start;
       margin-top: 14px;
+    }
+
+    .welcome-card .event-details {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-left: 4px solid var(--ihna-gold);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      transition: background-color 0.15s ease;
+    }
+
+    .welcome-card .event-details:hover,
+    .welcome-card .event-details:focus-within {
+      background: rgba(255, 255, 255, 0.17);
+    }
+
+    .welcome-card .event-details summary {
+      color: #ffe6a0;
+    }
+
+    .welcome-card .event-details-content {
+      color: #f7f5ec;
+    }
+
+    .welcome-card .event-details-content a {
+      color: #f7dfa0;
+    }
+
+    .welcome-card .close-history-article {
+      min-height: 44px;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(247, 223, 160, 0.65);
+      border-radius: 6px;
+      background: transparent;
+      color: #f7dfa0;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .welcome-card .close-history-article:hover,
+    .welcome-card .close-history-article:focus-visible {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .welcome-card .lan-source-note {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    #fall-festival {
+      background: linear-gradient(120deg, #fbf4df, #fff 72%);
+      border-color: #e7d9ad;
+    }
+
+    .seasonal-fall .content-card:not(.welcome-card) {
+      background: rgba(255, 255, 255, 0.91);
+    }
+
+    .seasonal-fall .meeting-card {
+      background: rgba(248, 246, 238, 0.94);
+    }
+
+    .seasonal-fall #fall-festival {
+      background: linear-gradient(120deg, #fff0d9, #fff 72%);
+      border-color: #e8c79b;
+      box-shadow: 0 10px 28px rgba(131, 66, 31, 0.08);
+    }
+
+    #fall-festival .eyebrow {
+      margin-bottom: 8px;
+      color: #7a6220;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .seasonal-fall #fall-festival .eyebrow {
+      color: #87451f;
     }
 
     .lan-source-note {
@@ -294,7 +470,11 @@
     }
 
     .site-footer .owner {
-      margin-bottom: 10px;
+      margin: 0 0 10px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
     }
 
     .site-footer .footer-title {
@@ -370,13 +550,84 @@
     }
 
     @media (max-width: 640px) {
+      body.seasonal-fall::before {
+        background-image: url("images/fall-scene-mobile.svg");
+        background-position: center bottom;
+        background-size: cover;
+        opacity: 0.4;
+      }
+
       .wrapper {
         width: auto;
-        padding: 18px 14px 28px;
+        padding: 14px 16px 28px;
+      }
+
+      .site-header {
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 14px;
+      }
+
+      .site-logo-artwork {
+        width: 220px;
+      }
+
+      .site-contact {
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 14px;
+      }
+
+      .section-nav {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 4px;
+        padding: 4px;
+        margin-bottom: 16px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x proximity;
+        scrollbar-color: #b8862d rgba(184, 134, 45, 0.15);
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .section-nav a {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        white-space: nowrap;
+      }
+
+      .section-nav-hint {
+        display: block;
+        margin: -10px 6px 14px;
+        color: var(--ihna-link);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-align: right;
+      }
+
+      main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+      }
+
+      .welcome-card,
+      #fall-festival,
+      .standalone-button,
+      .history-card {
+        grid-column: auto;
       }
 
       .content-card {
-        padding: 20px 16px;
+        padding: 22px 18px;
+      }
+
+      .welcome-card h1 {
+        font-size: clamp(1.7rem, 7vw, 2rem);
       }
 
       .event-details-content {
@@ -384,14 +635,21 @@
       }
 
       .event-flyer-link {
-        max-width: 220px;
+        max-width: 280px;
       }
 
+      .site-footer {
+        margin-top: 20px;
+      }
+
+      h1 {
+        font-size: 1.55rem;
+      }
     }
   </style>
 </head>
 
-<body>
+<body class="seasonal-fall">
   <div class="wrapper">
     <header class="site-header">
       <div class="site-logo-artwork">
@@ -412,9 +670,10 @@
       <a href="#listserv">ListServ</a>
       <a href="#archive">Archive</a>
     </nav>
+    <p class="section-nav-hint" aria-hidden="true">Swipe to see more &rarr;</p>
 
     <main>
-      <section class="content-card">
+      <section class="content-card welcome-card">
         <h1>Indian Hills Neighborhood Association</h1>
         <p class="established-year">Established 1974</p>
         <details class="event-details">
@@ -426,6 +685,7 @@
               <p>What began as a grassroots effort by neighbors working together to protect their community evolved into a lasting organization that has advocated for residents, parks, trails, traffic safety, and quality of life throughout its history.</p>
               <p><strong>This distinction is why the association has long identified itself as "Lawrence's First Neighborhood Association." It reflects not only our early place in the city's neighborhood association movement, but also a pioneering commitment to inclusive neighborhood representation, community involvement, and resident-led advocacy.</strong></p>
               <p class="lan-source-note"><strong>Source Note:</strong> This interpretation is based on <em>Lawrence Journal-World</em> historical reporting, City of Lawrence neighborhood records, and the association's 1985 <em>History of Indian Hills</em> publication. Earlier neighborhood improvement organizations existed in Lawrence prior to 1974; the distinction refers to the development of the city's modern neighborhood association framework and resident-representation model.</p>
+              <button class="close-history-article" type="button">Close article</button>
             </div>
           </div>
         </details>
@@ -435,8 +695,10 @@
             <div>
               <p>Following its revitalization in the mid-1980s, the Indian Hills Neighborhood Association played a role in establishing the Lawrence Association of Neighborhoods (LAN), helping create a citywide network dedicated to strengthening communication and cooperation among Lawrence neighborhoods.</p>
               <p>LAN was founded to provide neighborhood organizations with a stronger collective voice and a forum for sharing information, resources, and advocacy efforts. The organization continues to serve as an important connection between neighborhoods, residents, and local government.</p>
+              <p>LAN&rsquo;s slogan, <q>Neighbors working for Neighbors</q>, expresses this citywide commitment to neighborhood-to-neighborhood support.</p>
               <p>Today, as part of the association's ongoing revival, IHNA is once again a proud member of LAN and remains committed to supporting collaboration among neighborhoods across Lawrence.</p>
               <p class="lan-source-note"><strong>Source Note:</strong> Historical records, including Lawrence Association of Neighborhoods archival materials and research on Lawrence neighborhood organizations, identify IHNA as one of the neighborhood associations involved in the creation and early development of LAN during the 1980s. LAN's mission to support communication, cooperation, and neighborhood advocacy is documented by both LAN and the City of Lawrence.</p>
+              <button class="close-history-article" type="button">Close article</button>
             </div>
           </div>
         </details>
@@ -446,6 +708,7 @@
             <div>
               <p>Indian Hills Neighborhood Association is proud to be an active member of LAN, working alongside neighborhood organizations across Lawrence to strengthen community connections, share resources, and advocate for residents.</p>
               <p><a class="lan-article-link" href="https://lawrenceneighborhoods.wordpress.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Lawrence Association of Neighborhoods website"><img src="images/icons/lan.png" alt="LAN Website"></a></p>
+              <button class="close-history-article" type="button">Close article</button>
             </div>
           </div>
         </details>
@@ -455,21 +718,11 @@
         <a class="button-link" href="land-acknowledgment.html">Land Acknowledgment</a>
       </div>
 
-      <section class="content-card" id="boundaries">
-        <h2>Neighborhood Boundaries</h2>
-        <p>Louisiana St. (east), W. 31st St. (south), Naismith Valley Park (west), and W. 24th &amp; W. 25th St. (north).</p>
-        <details class="event-details">
-          <summary>View the neighborhood boundaries map</summary>
-          <a href="images/indian-hills-boundaries.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size neighborhood boundary map">
-            <img class="boundary-map" src="images/indian-hills-boundaries.png" alt="Neighborhood boundary map for Indian Hills in Lawrence, Kansas; select to open full size">
-          </a>
-        </details>
-      </section>
-
       <section class="content-card" id="fall-festival">
+        <p class="eyebrow">Upcoming Event</p>
         <h2>Neighborhood Fall Festival</h2>
         <p>Saturday, October 17 at 4 p.m. — food, games, and fun for the neighborhood.</p>
-        <details class="event-details">
+        <details class="event-details" open>
           <summary>Get the details &amp; view the flyer</summary>
           <div class="event-details-content">
             <div class="event-copy">
@@ -481,6 +734,17 @@
               <img class="event-flyer-preview" src="images/fall-festival-2026.png" alt="Fall Festival flyer preview; select to open full size">
             </a>
           </div>
+        </details>
+      </section>
+
+      <section class="content-card" id="boundaries">
+        <h2>Neighborhood Boundaries</h2>
+        <p>Louisiana St. (east), W. 31st St. (south), Naismith Valley Park (west), and W. 24th &amp; W. 25th St. (north).</p>
+        <details class="event-details">
+          <summary>View the neighborhood boundaries map</summary>
+          <a href="images/indian-hills-boundaries.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size neighborhood boundary map">
+            <img class="boundary-map" src="images/indian-hills-boundaries.png" alt="Neighborhood boundary map for Indian Hills in Lawrence, Kansas; select to open full size">
+          </a>
         </details>
       </section>
 
@@ -529,6 +793,7 @@
         <p>Browse past neighborhood event pages and the 27th Street Safe Streets Campaign.</p>
         <p><a class="button-link" href="archive.html">Visit the website archive</a></p>
       </section>
+
     </main>
 
     <footer class="site-footer">
@@ -560,5 +825,18 @@
     </footer>
   </div>
 
+  <script>
+    document.querySelector('.welcome-card').addEventListener('click', function (event) {
+      if (!(event.target instanceof Element)) return;
+      const closeButton = event.target.closest('.close-history-article');
+      if (!closeButton) return;
+
+      const article = closeButton.closest('details');
+      if (!article) return;
+
+      article.open = false;
+      article.querySelector('summary').focus();
+    });
+  </script>
 </body>
 </html>

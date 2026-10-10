@@ -1,0 +1,6 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Nextdoor</title>
+  <rect width="24" height="24" rx="5" fill="#00a86b"/>
+  <path d="M4 11.2 12 4l8 7.2v8.3a.5.5 0 0 1-.5.5h-5.2v-6h-4.6v6H4.5a.5.5 0 0 1-.5-.5z" fill="#fff"/>
+  <path d="M2.8 11.3 12 3l9.2 8.3" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
+</svg>

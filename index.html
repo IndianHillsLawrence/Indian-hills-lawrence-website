@@ -50,20 +50,38 @@
       box-shadow: 0 8px 24px rgba(36, 49, 39, 0.08);
     }
 
-    .site-header img {
+    .site-logo-artwork {
       display: block;
+      width: 390px;
       max-width: 100%;
-      width: 360px;
-      margin: 0 auto;
+      height: auto;
+      margin: 0 auto 12px;
+    }
+
+    .site-logo-artwork img {
+      display: block;
+      width: 100%;
       height: auto;
     }
 
-    .tagline {
-      margin: 0 0 20px;
-      text-align: center;
-      font-size: 1.05rem;
-      color: #000;
+    .site-contact {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
       font-weight: 600;
+    }
+
+    .site-contact a {
+      text-decoration: none;
+    }
+
+    .site-contact a:hover,
+    .site-contact a:focus {
+      text-decoration: underline;
     }
 
     .section-nav {
@@ -71,7 +89,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 0 0 22px;
+      margin: 0 auto 22px;
       padding: 10px;
       background: rgba(255, 255, 255, 0.72);
       border: 1px solid var(--ihna-border);
@@ -110,11 +128,25 @@
     h1 {
       font-size: clamp(1.9rem, 2.8vw, 2.7rem);
       margin-bottom: 12px;
+      text-align: center;
     }
 
     h2 {
       font-size: clamp(1.45rem, 2vw, 2rem);
       margin-bottom: 12px;
+    }
+
+    .established-year {
+      display: table;
+      margin: -4px auto 12px;
+      padding: 5px 12px;
+      border: 1px solid var(--ihna-gold);
+      border-radius: 999px;
+      background: var(--ihna-green);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
     }
 
     p {
@@ -139,6 +171,16 @@
       color: #fff;
       font-weight: 700;
       text-decoration: none;
+    }
+
+    .standalone-button {
+      margin: 0 auto 22px;
+      text-align: center;
+    }
+
+    .standalone-button .button-link {
+      display: block;
+      width: 100%;
     }
 
     .button-link:hover,
@@ -183,6 +225,10 @@
       margin-top: 14px;
     }
 
+    .lan-source-note {
+      font-size: 8px;
+    }
+
     .event-copy p:last-child {
       margin-bottom: 0;
     }
@@ -200,6 +246,16 @@
       height: auto;
       border: 1px solid var(--ihna-border);
       border-radius: 6px;
+    }
+
+    .boundary-map {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      margin: 16px auto 0;
+      border: 1px solid var(--ihna-border);
+      border-radius: 8px;
     }
 
     .meeting-details {
@@ -290,6 +346,19 @@
       flex: 0 0 24px;
     }
 
+    .footer-link-icon--lan {
+      width: 34px;
+      height: 28px;
+      flex-basis: 34px;
+      filter: brightness(0) invert(1);
+    }
+
+    .lan-article-link img {
+      display: block;
+      width: 48px;
+      height: auto;
+    }
+
     .footer-email {
       overflow-wrap: anywhere;
     }
@@ -325,12 +394,18 @@
 <body>
   <div class="wrapper">
     <header class="site-header">
-      <img src="images/indianhills.png" alt="Indian Hills Neighborhood Association, Lawrence Kansas">
+      <div class="site-logo-artwork">
+        <img src="images/indian-hills-header.png" alt="Indian Hills, Lawrence, Kansas">
+      </div>
+      <p class="site-contact">
+        <a href="https://indianhillslawrence.us/">www.indianhillslawrence.us</a>
+        <a href="mailto:indianhillslawrence@gmail.com">indianhillslawrence@gmail.com</a>
+      </p>
     </header>
 
-    <p class="tagline">Website for the Indian Hills Neighborhood Association, Lawrence Kansas</p>
-
     <nav class="section-nav" aria-label="Page sections">
+      <a href="land-acknowledgment.html">Land Acknowledgment</a>
+      <a href="#boundaries">Boundaries</a>
       <a href="#meetings">Meetings</a>
       <a href="#survey">Survey</a>
       <a href="#board-nominations">Nominations</a>
@@ -340,21 +415,55 @@
 
     <main>
       <section class="content-card">
-        <h1>Welcome to the Indian Hills Neighborhood Association</h1>
-        <p>We are the first neighborhood association in Lawrence, Kansas.</p>
-
-        <ul class="link-list">
-          <li>
-            Read more about Lawrence neighborhood associations:
-            <a href="https://www.lawrenceks.gov/City/PDS/Neighborhood-Association" target="_blank" rel="noopener noreferrer">Lawrence Neighborhood Associations</a>
-          </li>
-        </ul>
+        <h1>Indian Hills Neighborhood Association</h1>
+        <p class="established-year">Established 1974</p>
+        <details class="event-details">
+          <summary>Lawrence&rsquo;s First Neighborhood Association</summary>
+          <div class="event-details-content">
+            <div>
+              <p>Several neighborhood improvement organizations and civic groups were active in Lawrence before 1974. However, Indian Hills was organized during a period when the City of Lawrence established formal guidelines for neighborhood associations, including defined boundaries, organized leadership, and representation for all residents living within those boundaries, regardless of membership status or dues.</p>
+              <p>Under this new framework, Indian Hills became one of the first officially recognized neighborhood associations in the city and helped establish a model for inclusive neighborhood representation. Rather than speaking for only a select group of members, the association was organized to represent the interests and concerns of everyone who lived within the neighborhood's boundaries.</p>
+              <p>What began as a grassroots effort by neighbors working together to protect their community evolved into a lasting organization that has advocated for residents, parks, trails, traffic safety, and quality of life throughout its history.</p>
+              <p><strong>This distinction is why the association has long identified itself as "Lawrence's First Neighborhood Association." It reflects not only our early place in the city's neighborhood association movement, but also a pioneering commitment to inclusive neighborhood representation, community involvement, and resident-led advocacy.</strong></p>
+              <p class="lan-source-note"><strong>Source Note:</strong> This interpretation is based on <em>Lawrence Journal-World</em> historical reporting, City of Lawrence neighborhood records, and the association's 1985 <em>History of Indian Hills</em> publication. Earlier neighborhood improvement organizations existed in Lawrence prior to 1974; the distinction refers to the development of the city's modern neighborhood association framework and resident-representation model.</p>
+            </div>
+          </div>
+        </details>
+        <details class="event-details">
+          <summary>The Role in the Creation of the Lawrence Association of Neighborhoods</summary>
+          <div class="event-details-content">
+            <div>
+              <p>Following its revitalization in the mid-1980s, the Indian Hills Neighborhood Association played a role in establishing the Lawrence Association of Neighborhoods (LAN), helping create a citywide network dedicated to strengthening communication and cooperation among Lawrence neighborhoods.</p>
+              <p>LAN was founded to provide neighborhood organizations with a stronger collective voice and a forum for sharing information, resources, and advocacy efforts. The organization continues to serve as an important connection between neighborhoods, residents, and local government.</p>
+              <p>Today, as part of the association's ongoing revival, IHNA is once again a proud member of LAN and remains committed to supporting collaboration among neighborhoods across Lawrence.</p>
+              <p class="lan-source-note"><strong>Source Note:</strong> Historical records, including Lawrence Association of Neighborhoods archival materials and research on Lawrence neighborhood organizations, identify IHNA as one of the neighborhood associations involved in the creation and early development of LAN during the 1980s. LAN's mission to support communication, cooperation, and neighborhood advocacy is documented by both LAN and the City of Lawrence.</p>
+            </div>
+          </div>
+        </details>
+        <details class="event-details">
+          <summary>Proud Member of the Lawrence Association of Neighborhoods</summary>
+          <div class="event-details-content">
+            <div>
+              <p>Indian Hills Neighborhood Association is proud to be an active member of LAN, working alongside neighborhood organizations across Lawrence to strengthen community connections, share resources, and advocate for residents.</p>
+              <p><a class="lan-article-link" href="https://lawrenceneighborhoods.wordpress.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Lawrence Association of Neighborhoods website"><img src="images/icons/lan.png" alt="LAN Website"></a></p>
+            </div>
+          </div>
+        </details>
       </section>
 
-      <section class="content-card">
-        <h2>Land Acknowledgment</h2>
-        <p>Read about the Indigenous history of the land where our neighborhood and Billy Mills Middle School are located.</p>
-        <p><a class="button-link" href="land-acknowledgment.html">Read our Land Acknowledgment</a></p>
+      <div class="standalone-button" id="land-acknowledgment">
+        <a class="button-link" href="land-acknowledgment.html">Land Acknowledgment</a>
+      </div>
+
+      <section class="content-card" id="boundaries">
+        <h2>Neighborhood Boundaries</h2>
+        <p>Louisiana St. (east), W. 31st St. (south), Naismith Valley Park (west), and W. 24th &amp; W. 25th St. (north).</p>
+        <details class="event-details">
+          <summary>View the neighborhood boundaries map</summary>
+          <a href="images/indian-hills-boundaries.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size neighborhood boundary map">
+            <img class="boundary-map" src="images/indian-hills-boundaries.png" alt="Neighborhood boundary map for Indian Hills in Lawrence, Kansas; select to open full size">
+          </a>
+        </details>
       </section>
 
       <section class="content-card" id="fall-festival">
@@ -377,18 +486,22 @@
 
       <section class="content-card meeting-card" id="meetings">
         <h2>Neighborhood Meetings</h2>
-        <div class="meeting-details">
-          <strong>Tuesday, October 6, 2026</strong>
-          <span>5:30 PM - 6:30 PM</span><br>
-          <span>Billy Mills Middle School Cafeteria</span>
-          <p><a href="https://docs.google.com/document/d/1c7seto5t9hvU2FK7axLrA8xkbg_AAOGD/edit" target="_blank" rel="noopener noreferrer">View the meeting agenda</a><br>
-          <a href="https://docs.google.com/document/d/1v3WV1hHI1tpzWCzQuki9kNic5JUQxbyt/edit?usp=sharing&amp;ouid=118226020416440396903&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener noreferrer">October 6, 2026 meeting minutes</a></p>
-        </div>
         <div class="meeting-details" style="margin-top: 14px;">
+          <strong>Next Meeting</strong>
           <strong>Tuesday, November 3, 2026</strong>
           <span>5:30 PM - 6:30 PM</span><br>
           <span>Billy Mills Middle School Cafeteria</span>
         </div>
+        <details class="event-details">
+          <summary>Past Meetings &amp; Minutes</summary>
+          <div class="meeting-details">
+            <strong>Tuesday, October 6, 2026</strong>
+            <span>5:30 PM - 6:30 PM</span><br>
+            <span>Billy Mills Middle School Cafeteria</span>
+            <p><a href="https://docs.google.com/document/d/1c7seto5t9hvU2FK7axLrA8xkbg_AAOGD/edit" target="_blank" rel="noopener noreferrer">View the meeting agenda</a><br>
+            <a href="https://docs.google.com/document/d/1v3WV1hHI1tpzWCzQuki9kNic5JUQxbyt/edit?usp=sharing&amp;ouid=118226020416440396903&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener noreferrer">October 6, 2026 meeting minutes</a></p>
+          </div>
+        </details>
       </section>
 
       <section class="content-card" id="survey">
@@ -406,7 +519,6 @@
       <section class="content-card" id="listserv">
         <h2>Mailing List (ListServ)</h2>
         <p>Receive neighborhood notices, meeting updates, and community announcements from the Indian Hills Neighborhood Association.</p>
-        <p>Submit your email address to request updates. A list manager will review your request and add you to the mailing list. You do not need to sign in to Google.</p>
         <p>
           <a class="button-link" href="https://docs.google.com/forms/d/e/1FAIpQLSf1jhB8aT7YlSWwZ2YY4vqrOhVYoWbbRek1bxTcdxTz_sDBdg/viewform" target="_blank" rel="noopener noreferrer">Join the mailing list</a>
         </p>
@@ -414,7 +526,7 @@
 
       <section class="content-card" id="archive">
         <h2>Website Archive</h2>
-        <p>Browse past neighborhood event pages and the 27th Street Safe Streets project.</p>
+        <p>Browse past neighborhood event pages and the 27th Street Safe Streets Campaign.</p>
         <p><a class="button-link" href="archive.html">Visit the website archive</a></p>
       </section>
     </main>
@@ -433,6 +545,9 @@
         </a>
         <a href="https://www.facebook.com/pages/Indian-Hills-Neighborhood-Association/394091310635729" target="_blank" rel="noopener noreferrer" aria-label="Indian Hills Neighborhood Association on Facebook (opens in a new tab)">
           <img class="footer-link-icon" src="images/icons/facebook.svg" alt="">
+        </a>
+        <a href="https://lawrenceneighborhoods.wordpress.com/" target="_blank" rel="noopener noreferrer" aria-label="Lawrence Association of Neighborhoods website (opens in a new tab)">
+          <img class="footer-link-icon footer-link-icon--lan" src="images/icons/lan.png" alt="">
         </a>
         <a class="footer-email" href="mailto:indianhillslawrence@gmail.com" aria-label="Email Indian Hills Neighborhood Association">
           <svg class="footer-link-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

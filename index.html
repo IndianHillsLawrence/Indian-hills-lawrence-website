@@ -32,26 +32,6 @@
       color: var(--ihna-text);
     }
 
-    body.seasonal-fall {
-      --ihna-gold: #d58b32;
-      --ihna-cream: #fbf4e9;
-      --ihna-border: #eadbc8;
-      --ihna-link: #83421f;
-      position: relative;
-      isolation: isolate;
-      background: var(--ihna-cream);
-    }
-
-    body.seasonal-fall::before {
-      position: fixed;
-      z-index: -1;
-      inset: 0;
-      background: url("images/fall-scene.svg") center bottom / cover no-repeat;
-      content: "";
-      opacity: 0.38;
-      pointer-events: none;
-    }
-
     .wrapper {
       width: 100%;
       max-width: 1120px;
@@ -149,15 +129,6 @@
       outline-offset: 2px;
     }
 
-    .seasonal-fall .section-nav {
-      padding: 4px;
-      border-radius: 14px;
-      background: rgba(244, 227, 204, 0.96);
-      box-shadow: 0 5px 16px rgba(73, 53, 33, 0.07);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-    }
-
     main {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -174,7 +145,6 @@
     }
 
     .welcome-card,
-    #fall-festival,
     .standalone-button {
       grid-column: 1 / -1;
     }
@@ -369,59 +339,8 @@
       color: rgba(255, 255, 255, 0.78);
     }
 
-    #fall-festival {
-      background: linear-gradient(120deg, #fbf4df, #fff 72%);
-      border-color: #e7d9ad;
-    }
-
-    .seasonal-fall .content-card:not(.welcome-card) {
-      background: rgba(255, 255, 255, 0.91);
-    }
-
-    .seasonal-fall .meeting-card {
-      background: rgba(248, 246, 238, 0.94);
-    }
-
-    .seasonal-fall #fall-festival {
-      background: linear-gradient(120deg, #fff0d9, #fff 72%);
-      border-color: #e8c79b;
-      box-shadow: 0 10px 28px rgba(131, 66, 31, 0.08);
-    }
-
-    #fall-festival .eyebrow {
-      margin-bottom: 8px;
-      color: #7a6220;
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
-
-    .seasonal-fall #fall-festival .eyebrow {
-      color: #87451f;
-    }
-
     .lan-source-note {
       font-size: 8px;
-    }
-
-    .event-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .event-flyer-link {
-      display: block;
-      width: 100%;
-      max-width: 260px;
-      margin: 0 auto;
-    }
-
-    .event-flyer-preview {
-      display: block;
-      width: 100%;
-      height: auto;
-      border: 1px solid var(--ihna-border);
-      border-radius: 6px;
     }
 
     .boundary-map {
@@ -550,13 +469,6 @@
     }
 
     @media (max-width: 640px) {
-      body.seasonal-fall::before {
-        background-image: url("images/fall-scene-mobile.svg");
-        background-position: center bottom;
-        background-size: cover;
-        opacity: 0.4;
-      }
-
       .wrapper {
         width: auto;
         padding: 14px 16px 28px;
@@ -616,7 +528,6 @@
       }
 
       .welcome-card,
-      #fall-festival,
       .standalone-button,
       .history-card {
         grid-column: auto;
@@ -649,7 +560,7 @@
   </style>
 </head>
 
-<body class="seasonal-fall">
+<body>
   <div class="wrapper">
     <header class="site-header">
       <div class="site-logo-artwork">
@@ -717,25 +628,6 @@
       <div class="standalone-button" id="land-acknowledgment">
         <a class="button-link" href="land-acknowledgment.html">Land Acknowledgment</a>
       </div>
-
-      <section class="content-card" id="fall-festival">
-        <p class="eyebrow">Upcoming Event</p>
-        <h2>Neighborhood Fall Festival</h2>
-        <p>Saturday, October 17 at 4 p.m. — food, games, and fun for the neighborhood.</p>
-        <details class="event-details" open>
-          <summary>Get the details &amp; view the flyer</summary>
-          <div class="event-details-content">
-            <div class="event-copy">
-              <p>The Indian Hills Neighborhood is invited to a Neighborhood Fall Festival on Saturday, October 17, starting at 4 p.m.</p>
-              <p>This outdoor event will include food (hot dogs and a variety of side dishes), family-oriented games (relay races, cornhole, a basketball shooting contest, and more), and spaces for sitting and visiting. Dress for the weather!</p>
-              <p>The event is hosted by Southside Church of Christ at 1105 W. 25th Street (25th and Missouri), where neighbors come to vote.</p>
-            </div>
-            <a class="event-flyer-link" href="images/fall-festival-2026.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size Fall Festival flyer">
-              <img class="event-flyer-preview" src="images/fall-festival-2026.png" alt="Fall Festival flyer preview; select to open full size">
-            </a>
-          </div>
-        </details>
-      </section>
 
       <section class="content-card" id="boundaries">
         <h2>Neighborhood Boundaries</h2>

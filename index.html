@@ -250,7 +250,27 @@
 
     .nominations-table-wrap {
       max-width: 100%;
+      max-height: 70vh;
+      overflow: auto;
+      scrollbar-color: #b8862d rgba(184, 134, 45, 0.15);
+    }
+
+    .nominations-scroll-top {
+      max-width: 100%;
       overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-color: #b8862d rgba(184, 134, 45, 0.15);
+    }
+
+    .nominations-scroll-top div {
+      height: 1px;
+    }
+
+    .nominations-table thead th {
+      position: sticky;
+      top: 0;
+      background: var(--ihna-cream);
+      z-index: 1;
     }
 
     .nominations-table {
@@ -736,6 +756,7 @@
         <details class="event-details">
           <summary>Nomination data as of October 21, 2026</summary>
           <p>Does not include second-choice nominations.</p>
+          <div class="nominations-scroll-top" aria-hidden="true"><div></div></div>
           <div class="nominations-table-wrap">
             <table class="nominations-table">
               <thead>
@@ -863,6 +884,30 @@
     </footer>
   </div>
 
+  <script>
+    (function () {
+      var top = document.querySelector('.nominations-scroll-top');
+      var wrap = document.querySelector('.nominations-table-wrap');
+      if (!top || !wrap) return;
+      var table = wrap.querySelector('table');
+      var sync = false;
+      function size() {
+        top.firstElementChild.style.width = table.scrollWidth + 'px';
+        top.style.display = table.scrollWidth > wrap.clientWidth ? '' : 'none';
+      }
+      top.addEventListener('scroll', function () {
+        if (sync) { sync = false; return; }
+        sync = true; wrap.scrollLeft = top.scrollLeft;
+      });
+      wrap.addEventListener('scroll', function () {
+        if (sync) { sync = false; return; }
+        sync = true; top.scrollLeft = wrap.scrollLeft;
+      });
+      wrap.closest('details').addEventListener('toggle', size);
+      window.addEventListener('resize', size);
+      size();
+    })();
+  </script>
   <script>
     document.querySelector('.welcome-card').addEventListener('click', function (event) {
       if (!(event.target instanceof Element)) return;

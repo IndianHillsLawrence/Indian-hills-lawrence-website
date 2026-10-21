@@ -24,6 +24,16 @@
 
     * { box-sizing: border-box; }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -127,6 +137,19 @@
     .section-nav a:focus-visible {
       outline: 3px solid var(--ihna-gold);
       outline-offset: 2px;
+    }
+
+    .section-nav--footer {
+      gap: 2px;
+      margin: 24px auto 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--ihna-border);
+    }
+
+    .section-nav--footer a {
+      min-height: 34px;
+      padding: 4px 10px;
+      font-size: 0.85rem;
     }
 
     main {
@@ -549,6 +572,19 @@
         white-space: nowrap;
       }
 
+      .section-nav--footer {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow: visible;
+        scroll-snap-type: none;
+      }
+
+      .section-nav--footer a {
+        flex: 0 1 auto;
+        scroll-snap-align: none;
+        white-space: normal;
+      }
+
       .section-nav-hint {
         display: block;
         margin: -10px 6px 14px;
@@ -799,6 +835,16 @@
       </section>
 
     </main>
+
+    <nav class="section-nav section-nav--footer" aria-label="Footer navigation">
+      <a href="land-acknowledgment.html">Land Acknowledgment</a>
+      <a href="#boundaries">Boundaries</a>
+      <a href="#meetings">Meetings</a>
+      <a href="#survey">Survey</a>
+      <a href="#board-nominations">Nominations</a>
+      <a href="#listserv">ListServ</a>
+      <a href="#archive">Archive</a>
+    </nav>
 
     <footer class="site-footer">
       <div class="owner">

@@ -349,6 +349,26 @@
       background: #f8f6ee;
     }
 
+    #calendar {
+      grid-column: 1 / -1;
+    }
+
+    .calendar-frame {
+      display: block;
+      width: 100%;
+      height: 600px;
+      margin-top: 14px;
+      border: 1px solid var(--ihna-border);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    @media (max-width: 640px) {
+      .calendar-frame {
+        height: 480px;
+      }
+    }
+
     .event-details {
       margin-top: 14px;
       padding: 14px 16px;
@@ -655,6 +675,7 @@
       <a href="land-acknowledgment.html">Land Acknowledgment</a>
       <a href="#boundaries">Boundaries</a>
       <a href="#meetings">Meetings</a>
+      <a href="#calendar">Calendar</a>
       <a href="#survey">Survey</a>
       <a href="#board-nominations">Nominations</a>
       <a href="#listserv">ListServ</a>
@@ -742,6 +763,12 @@
             <a href="docs/minutes/ihna-minutes-2026-10-06.pdf" target="_blank" rel="noopener noreferrer">October 6, 2026 meeting minutes</a></p>
           </div>
         </details>
+      </section>
+
+      <section class="content-card" id="calendar">
+        <h2>Neighborhood Calendar</h2>
+        <p>Upcoming Indian Hills events and meetings. <a href="https://calendar.google.com/calendar/u/0/embed?src=d7a93ce16836d321154e1d7da00b85ce4d6ead0ffe6e48f12aed830610e91288%40group.calendar.google.com&amp;ctz=America%2FChicago" target="_blank" rel="noopener noreferrer">Open the calendar in Google Calendar</a>.</p>
+        <iframe class="calendar-frame" title="Indian Hills Neighborhood Association public events calendar" src="https://calendar.google.com/calendar/embed?src=d7a93ce16836d321154e1d7da00b85ce4d6ead0ffe6e48f12aed830610e91288%40group.calendar.google.com&amp;ctz=America%2FChicago&amp;mode=AGENDA&amp;showTitle=0&amp;showPrint=0&amp;showTz=0" loading="lazy"></iframe>
       </section>
 
       <section class="content-card" id="survey">
@@ -849,6 +876,7 @@
       <a href="land-acknowledgment.html">Land Acknowledgment</a>
       <a href="#boundaries">Boundaries</a>
       <a href="#meetings">Meetings</a>
+      <a href="#calendar">Calendar</a>
       <a href="#survey">Survey</a>
       <a href="#board-nominations">Nominations</a>
       <a href="#listserv">ListServ</a>

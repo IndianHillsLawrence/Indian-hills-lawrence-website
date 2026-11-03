@@ -363,6 +363,57 @@
       background: #fff;
     }
 
+    .calendar-details summary {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .calendar-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .calendar-details summary::before {
+      content: "\25B6";
+      color: var(--ihna-link);
+      font-size: 0.8em;
+      transition: transform 0.15s ease;
+    }
+
+    .calendar-details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .calendar-details summary h2 {
+      margin: 0;
+      color: var(--ihna-link);
+    }
+
+    .calendar-details summary:focus-visible {
+      outline: 3px solid var(--ihna-gold);
+      outline-offset: 4px;
+    }
+
+    .close-calendar {
+      min-height: 44px;
+      margin-top: 12px;
+      padding: 8px 14px;
+      border: 1px solid var(--ihna-link);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--ihna-link);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .close-calendar:hover,
+    .close-calendar:focus-visible {
+      background: rgba(217, 180, 74, 0.25);
+    }
+
     @media (max-width: 640px) {
       .calendar-frame {
         height: 480px;
@@ -766,10 +817,9 @@
       </section>
 
       <section class="content-card" id="calendar">
-        <h2>Neighborhood Calendar</h2>
-        <p>Upcoming Indian Hills events and meetings.</p>
-        <details class="event-details" open>
-          <summary>View the calendar</summary>
+        <details class="calendar-details" open>
+          <summary><h2>Neighborhood Calendar</h2></summary>
+          <p>Upcoming Indian Hills events and meetings.</p>
           <p><a href="https://calendar.google.com/calendar/u/0/embed?src=d7a93ce16836d321154e1d7da00b85ce4d6ead0ffe6e48f12aed830610e91288%40group.calendar.google.com&amp;ctz=America%2FChicago" target="_blank" rel="noopener noreferrer">Open the calendar in Google Calendar</a></p>
           <iframe class="calendar-frame" title="Indian Hills Neighborhood Association public events calendar" src="https://calendar.google.com/calendar/embed?src=d7a93ce16836d321154e1d7da00b85ce4d6ead0ffe6e48f12aed830610e91288%40group.calendar.google.com&amp;ctz=America%2FChicago&amp;mode=MONTH&amp;showTitle=0&amp;showPrint=0&amp;showTz=0"></iframe>
                     <button class="close-calendar" type="button">Close calendar</button>
@@ -941,6 +991,16 @@
       window.addEventListener('resize', size);
       size();
     })();
+  </script>
+  <script>
+    document.addEventListener('click', function (event) {
+      if (!(event.target instanceof Element)) return;
+      const button = event.target.closest('.close-calendar');
+      if (!button) return;
+      const details = button.closest('details');
+      details.open = false;
+      details.querySelector('summary').focus();
+    });
   </script>
   <script>
     document.querySelector('.welcome-card').addEventListener('click', function (event) {

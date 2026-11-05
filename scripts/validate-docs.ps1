@@ -4,7 +4,7 @@
 $ErrorActionPreference = 'Stop'
 
 $docs = 'docs'
-$folders = @('agenda', 'minutes')
+$folders = @('agenda', 'minutes', 'bylaws')
 $maxBytes = 10MB
 $problems = New-Object System.Collections.Generic.List[string]
 
@@ -17,25 +17,32 @@ foreach ($file in $files) {
     $parts = $rel.Split('/')
 
     if ($parts.Count -ne 2 -or $folders -cnotcontains $parts[0]) {
-        $problems.Add("${label}: must be directly inside docs/agenda/ or docs/minutes/")
+        $problems.Add("${label}: must be directly inside docs/agenda/, docs/minutes/, or docs/bylaws/")
         continue
     }
 
     $folder = $parts[0]
-    $match = [regex]::Match($parts[1], '^ihna-(agenda|minutes)-(\d{4})-(\d{2})-(\d{2})\.pdf$')
-    if (-not $match.Success) {
-        $problems.Add("${label}: bad file name. Use ihna-$folder-YYYY-MM-DD.pdf (lowercase, hyphens, no spaces, PDF only)")
-        continue
-    }
+    if ($folder -eq 'bylaws') {
+        if ($parts[1] -cne 'ihna-proposed-bylaws-draft.pdf') {
+            $problems.Add("${label}: bad file name. Use ihna-proposed-bylaws-draft.pdf")
+            continue
+        }
+    } else {
+        $match = [regex]::Match($parts[1], '^ihna-(agenda|minutes)-(\d{4})-(\d{2})-(\d{2})\.pdf$')
+        if (-not $match.Success) {
+            $problems.Add("${label}: bad file name. Use ihna-$folder-YYYY-MM-DD.pdf (lowercase, hyphens, no spaces, PDF only)")
+            continue
+        }
 
-    if ($match.Groups[1].Value -ne $folder) {
-        $problems.Add("${label}: a '$($match.Groups[1].Value)' file belongs in docs/$($match.Groups[1].Value)/")
-    }
+        if ($match.Groups[1].Value -ne $folder) {
+            $problems.Add("${label}: a '$($match.Groups[1].Value)' file belongs in docs/$($match.Groups[1].Value)/")
+        }
 
-    try {
-        [void][datetime]::new([int]$match.Groups[2].Value, [int]$match.Groups[3].Value, [int]$match.Groups[4].Value)
-    } catch {
-        $problems.Add("${label}: the date in the file name is not a real date")
+        try {
+            [void][datetime]::new([int]$match.Groups[2].Value, [int]$match.Groups[3].Value, [int]$match.Groups[4].Value)
+        } catch {
+            $problems.Add("${label}: the date in the file name is not a real date")
+        }
     }
 
     if ($file.Length -gt $maxBytes) {

@@ -4,7 +4,7 @@
 $ErrorActionPreference = 'Stop'
 
 $docs = 'docs'
-$folders = @('agenda', 'minutes', 'bylaws', 'surveys')
+$folders = @('agenda', 'minutes', 'bylaws', 'surveys', 'policies')
 $maxBytes = 10MB
 $problems = New-Object System.Collections.Generic.List[string]
 
@@ -17,7 +17,7 @@ foreach ($file in $files) {
     $parts = $rel.Split('/')
 
     if ($parts.Count -ne 2 -or $folders -cnotcontains $parts[0]) {
-        $problems.Add("${label}: must be directly inside docs/agenda/, docs/minutes/, docs/bylaws/, or docs/surveys/")
+        $problems.Add("${label}: must be directly inside docs/agenda/, docs/minutes/, docs/bylaws/, docs/surveys/, or docs/policies/")
         continue
     }
 
@@ -25,6 +25,11 @@ foreach ($file in $files) {
     if ($folder -eq 'bylaws') {
         if ($parts[1] -cne 'ihna-proposed-bylaws-draft.pdf') {
             $problems.Add("${label}: bad file name. Use ihna-proposed-bylaws-draft.pdf")
+            continue
+        }
+    } elseif ($folder -eq 'policies') {
+        if ($parts[1] -cne 'ihna-email-listserv-policy-2026-11-03.pdf') {
+            $problems.Add("${label}: bad file name. Use ihna-email-listserv-policy-YYYY-MM-DD.pdf")
             continue
         }
     } else {

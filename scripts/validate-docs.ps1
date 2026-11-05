@@ -4,7 +4,7 @@
 $ErrorActionPreference = 'Stop'
 
 $docs = 'docs'
-$folders = @('agenda', 'minutes', 'bylaws')
+$folders = @('agenda', 'minutes', 'bylaws', 'surveys')
 $maxBytes = 10MB
 $problems = New-Object System.Collections.Generic.List[string]
 
@@ -17,7 +17,7 @@ foreach ($file in $files) {
     $parts = $rel.Split('/')
 
     if ($parts.Count -ne 2 -or $folders -cnotcontains $parts[0]) {
-        $problems.Add("${label}: must be directly inside docs/agenda/, docs/minutes/, or docs/bylaws/")
+        $problems.Add("${label}: must be directly inside docs/agenda/, docs/minutes/, docs/bylaws/, or docs/surveys/")
         continue
     }
 
@@ -28,14 +28,16 @@ foreach ($file in $files) {
             continue
         }
     } else {
-        $match = [regex]::Match($parts[1], '^ihna-(agenda|minutes)-(\d{4})-(\d{2})-(\d{2})\.pdf$')
+        $match = [regex]::Match($parts[1], '^ihna-(agenda|minutes|survey-summary)-(\d{4})-(\d{2})-(\d{2})\.pdf$')
         if (-not $match.Success) {
-            $problems.Add("${label}: bad file name. Use ihna-$folder-YYYY-MM-DD.pdf (lowercase, hyphens, no spaces, PDF only)")
+            $documentType = if ($folder -eq 'surveys') { 'survey-summary' } else { $folder }
+            $problems.Add("${label}: bad file name. Use ihna-$documentType-YYYY-MM-DD.pdf (lowercase, hyphens, no spaces, PDF only)")
             continue
         }
 
-        if ($match.Groups[1].Value -ne $folder) {
-            $problems.Add("${label}: a '$($match.Groups[1].Value)' file belongs in docs/$($match.Groups[1].Value)/")
+        $expectedFolder = if ($match.Groups[1].Value -eq 'survey-summary') { 'surveys' } else { $match.Groups[1].Value }
+        if ($expectedFolder -ne $folder) {
+            $problems.Add("${label}: a '$($match.Groups[1].Value)' file belongs in docs/$expectedFolder/")
         }
 
         try {

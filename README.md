@@ -26,3 +26,7 @@ Rules:
 - Then link to the file from the relevant section of `index.html`.
 
 A check named **Validate documents** runs on every pull request and blocks the merge if a file breaks these rules. The error message says what to fix. To run it yourself before pushing, from the repository folder in PowerShell: `powershell -ExecutionPolicy Bypass -File .\scripts\validate-docs.ps1`
+
+## Adding survey card print proofs
+
+Put front and back proofs for survey handout cards in `docs/survey-cards/` as PDFs named `ihna-survey-card-front-YYYY-MM-DD.pdf` and `ihna-survey-card-back-YYYY-MM-DD.pdf`. Use the date the proofs were prepared, then link to them from the relevant notice. The document validation check verifies the file names, dates, and PDF format.

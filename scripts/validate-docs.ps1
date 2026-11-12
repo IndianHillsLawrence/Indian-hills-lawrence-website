@@ -4,7 +4,7 @@
 $ErrorActionPreference = 'Stop'
 
 $docs = 'docs'
-$folders = @('agenda', 'minutes', 'bylaws', 'surveys', 'policies')
+$folders = @('agenda', 'minutes', 'bylaws', 'surveys', 'survey-cards', 'policies')
 $maxBytes = 10MB
 $problems = New-Object System.Collections.Generic.List[string]
 
@@ -31,6 +31,18 @@ foreach ($file in $files) {
         if ($parts[1] -cne 'ihna-email-listserv-policy-2026-11-03.pdf') {
             $problems.Add("${label}: bad file name. Use ihna-email-listserv-policy-YYYY-MM-DD.pdf")
             continue
+        }
+    } elseif ($folder -eq 'survey-cards') {
+        $match = [regex]::Match($parts[1], '^ihna-survey-card-(front|back)-(\d{4})-(\d{2})-(\d{2})\.pdf$')
+        if (-not $match.Success) {
+            $problems.Add("${label}: bad file name. Use ihna-survey-card-front-YYYY-MM-DD.pdf or ihna-survey-card-back-YYYY-MM-DD.pdf")
+            continue
+        }
+
+        try {
+            [void][datetime]::new([int]$match.Groups[2].Value, [int]$match.Groups[3].Value, [int]$match.Groups[4].Value)
+        } catch {
+            $problems.Add("${label}: the date in the file name is not a real date")
         }
     } else {
         $match = [regex]::Match($parts[1], '^ihna-(agenda|minutes|survey-summary)-(\d{4})-(\d{2})-(\d{2})\.pdf$')

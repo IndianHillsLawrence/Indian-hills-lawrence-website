@@ -8,6 +8,10 @@ The homepage `#calendar` section embeds the association's public Google Calendar
 
 Keep notices in `notices.html` ordered by the date sent, newest first. Insert each new notice in its appropriate position, using the sent date rather than the date of the event or meeting.
 
+## Archiving content
+
+When adding an entry to `archive.html`, include its archive date and place dated entries in archive-date order, newest first. Keep older material whose archive dates were not recorded below the dated entries.
+
 ## Adding meeting documents
 
 Meeting documents, survey summaries, the proposed bylaws, and association policies are published as PDFs so they look the same on every phone and computer.

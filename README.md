@@ -4,6 +4,10 @@ Website for Indian Hills Neighborhood Association Lawrence, Kansas
 
 The homepage `#calendar` section embeds the association's public Google Calendar. To add or change events, edit the calendar in Google Calendar; the website updates automatically. The calendar must stay shared as "Make available to public". To point the site at a different calendar, replace the `src=` calendar ID (URL-encoded, `@` as `%40`) in the `#calendar` section of `index.html`.
 
+## Adding notices
+
+Keep notices in `notices.html` ordered by the date sent, newest first. Insert each new notice in its appropriate position, using the sent date rather than the date of the event or meeting.
+
 ## Adding meeting documents
 
 Meeting documents, survey summaries, the proposed bylaws, and association policies are published as PDFs so they look the same on every phone and computer.

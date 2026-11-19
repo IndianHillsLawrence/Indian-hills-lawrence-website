@@ -589,6 +589,14 @@
       font-size: 0.85rem;
     }
 
+    .site-footer .footer-links .footer-policy-nav {
+      display: flex;
+      flex: 1 1 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
     .site-footer .footer-links a:hover,
     .site-footer .footer-links a:focus {
       color: var(--ihna-gold);
@@ -629,6 +637,18 @@
       margin-top: 8px;
       font-size: 0.9rem;
       opacity: 0.9;
+    }
+
+    .site-footer .footer-disclaimer {
+      max-width: 760px;
+      margin: 12px auto 0;
+      line-height: 1.6;
+    }
+
+    .site-footer .footer-disclaimer a {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
     }
 
     @media (max-width: 640px) {
@@ -919,6 +939,11 @@
           <img class="footer-link-icon footer-link-icon--lan" src="images/icons/lan.png" alt="">
         </a>
         <a class="footer-policy-link" href="docs/policies/ihna-email-listserv-policy-2026-11-03.pdf" target="_blank" rel="noopener noreferrer">IHNA Email and Listserv Policy - 11-03-2026</a>
+        <nav class="footer-policy-nav" aria-label="Website policies">
+          <a class="footer-policy-link" href="privacy-policy.html">Privacy Policy</a>
+          <a class="footer-policy-link" href="terms-of-use.html">Terms of Use</a>
+          <a class="footer-policy-link" href="website-disclaimer.html">Full Website Disclaimer</a>
+        </nav>
         <a class="footer-email" href="mailto:indianhillslawrence@gmail.com" aria-label="Email Indian Hills Neighborhood Association">
           <svg class="footer-link-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -926,6 +951,12 @@
           <span>indianhillslawrence@gmail.com</span>
         </a>
       </div>
+      <p class="footer-disclaimer">
+        Content on this website is provided for informational purposes. Views expressed by contributors,
+        commenters, or community members do not necessarily represent the official position of the
+        Association. Links to external resources are provided as a convenience and do not imply
+        endorsement. Read the <a href="website-disclaimer.html">full website disclaimer</a>.
+      </p>
       <p class="copyright">© 2026 Indian Hills Neighborhood Association</p>
     </footer>
   </div>

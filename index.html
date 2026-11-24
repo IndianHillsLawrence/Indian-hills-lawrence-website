@@ -59,6 +59,19 @@
       border-bottom: 1px solid var(--ihna-border);
     }
 
+    .welcome-board-roster {
+      margin: -12px 0 24px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .welcome-board-roster strong {
+      display: block;
+      color: #f7dfa0;
+      font-size: 1rem;
+    }
+
     .site-logo-artwork {
       display: block;
       width: 240px;
@@ -302,6 +315,35 @@
 
     .nominations-table td:nth-child(2) {
       text-align: center;
+    }
+
+    .board-members-card {
+      grid-column: 1 / -1;
+    }
+
+    .board-members-table-wrap {
+      max-width: 100%;
+      overflow-x: auto;
+      scrollbar-color: #b8862d rgba(184, 134, 45, 0.15);
+    }
+
+    .board-members-table {
+      width: 100%;
+      min-width: 920px;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .board-members-table th,
+    .board-members-table td {
+      padding: 8px;
+      border: 1px solid var(--ihna-border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .board-members-table thead {
+      background: var(--ihna-cream);
     }
 
     .standalone-button {
@@ -555,6 +597,17 @@
       color: inherit;
     }
 
+    .footer-board-roster {
+      max-width: 900px;
+      margin: 0 auto 16px !important;
+      line-height: 1.6;
+    }
+
+    .footer-board-roster strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
     .site-footer .footer-title {
       display: inline-block;
       margin-bottom: 6px;
@@ -712,7 +765,8 @@
 
       .welcome-card,
       .standalone-button,
-      .history-card {
+      .history-card,
+      .board-members-card {
         grid-column: auto;
       }
 
@@ -761,7 +815,7 @@
       <a href="#meetings">Meetings</a>
       <a href="#calendar">Calendar</a>
       <a href="#survey">Survey</a>
-      <a href="#board-elections">Elections</a>
+      <a href="#board-members">Board Members</a>
       <a href="#listserv">ListServ</a>
       <a href="notices.html">Notices</a>
       <a href="#archive">Archive</a>
@@ -772,6 +826,10 @@
       <section class="content-card welcome-card">
         <h1>Indian Hills Neighborhood Association</h1>
         <p class="established-year">Established 1974</p>
+        <p class="welcome-board-roster">
+          <strong>IHNA Board Members</strong>
+          Angie West - President | Laura Gloeckner - Secretary | Daniel Amberg – Treasurer | Katie Gannaway – Beautification and Green Space Chair | Stewart Gubler – Member at Large | Blain McNabb – Member at Large
+        </p>
         <details class="event-details">
           <summary>Lawrence&rsquo;s First Neighborhood Association</summary>
           <div class="event-details-content">
@@ -816,6 +874,16 @@
       <div class="standalone-button">
         <a class="button-link" href="not-an-hoa.html">Not an HOA. A Neighborhood Association.</a>
       </div>
+
+      <section class="content-card" id="calendar">
+        <details class="calendar-details">
+          <summary><h2>Neighborhood Calendar</h2></summary>
+          <p>Upcoming Indian Hills events and meetings.</p>
+          <p><a href="https://calendar.google.com/calendar/u/0/embed?src=d7a93ce16836d321154e1d7da00b85ce4d6ead0ffe6e48f12aed830610e91288%40group.calendar.google.com&amp;ctz=America%2FChicago" target="_blank" rel="noopener noreferrer">Open the calendar in Google Calendar</a></p>
+          <iframe class="calendar-frame" title="Indian Hills Neighborhood Association public events calendar" src="https://calendar.google.com/calendar/embed?src=d7a93ce16836d321154e1d7da00b85ce4d6ead0ffe6e48f12aed830610e91288%40group.calendar.google.com&amp;ctz=America%2FChicago&amp;mode=MONTH&amp;showTitle=0&amp;showPrint=0&amp;showTz=0"></iframe>
+          <button class="close-calendar" type="button">Close calendar</button>
+        </details>
+      </section>
 
       <section class="content-card" id="boundaries">
         <h2>Neighborhood Boundaries</h2>
@@ -866,28 +934,11 @@
         </details>
       </section>
 
-      <section class="content-card" id="calendar">
-        <details class="calendar-details">
-          <summary><h2>Neighborhood Calendar</h2></summary>
-          <p>Upcoming Indian Hills events and meetings.</p>
-          <p><a href="https://calendar.google.com/calendar/u/0/embed?src=d7a93ce16836d321154e1d7da00b85ce4d6ead0ffe6e48f12aed830610e91288%40group.calendar.google.com&amp;ctz=America%2FChicago" target="_blank" rel="noopener noreferrer">Open the calendar in Google Calendar</a></p>
-          <iframe class="calendar-frame" title="Indian Hills Neighborhood Association public events calendar" src="https://calendar.google.com/calendar/embed?src=d7a93ce16836d321154e1d7da00b85ce4d6ead0ffe6e48f12aed830610e91288%40group.calendar.google.com&amp;ctz=America%2FChicago&amp;mode=MONTH&amp;showTitle=0&amp;showPrint=0&amp;showTz=0"></iframe>
-                    <button class="close-calendar" type="button">Close calendar</button>
-                  </details>
-      </section>
-
       <section class="content-card" id="survey">
         <h2>Neighborhood Survey</h2>
         <p>We want to hear from neighbors about community priorities, concerns, and ideas for improving the Indian Hills neighborhood.</p>
         <p><a class="button-link" href="https://forms.gle/Tnnus8QQrAuistJ39" target="_blank" rel="noopener noreferrer">Take the neighborhood survey</a></p>
         <p><a href="docs/surveys/ihna-survey-summary-2026-11-03.pdf" target="_blank" rel="noopener noreferrer">October 2026 neighborhood survey summary</a></p>
-      </section>
-
-      <section class="content-card" id="board-elections">
-        <h2>Board Elections 2026</h2>
-        <p>Board nominations closed November 1. The last day to vote was November 10, 2026.</p>
-        <p>The results are being tallied and will be provided soon! Questions? Email <a href="mailto:indianhillslawrence@gmail.com">indianhillslawrence@gmail.com</a></p>
-        <p><strong>Eligibility:</strong> Voting is limited to residents who live within neighborhood boundaries.</p>
       </section>
 
       <section class="content-card" id="listserv">
@@ -906,6 +957,109 @@
         <p><a class="button-link" href="archive.html">Visit the website archive</a></p>
       </section>
 
+      <section class="content-card board-members-card" id="board-members">
+        <h2>IHNA Board Members</h2>
+        <p>Angie West - President | Laura Gloeckner - Secretary | Daniel Amberg – Treasurer | Katie Gannaway – Beautification and Green Space Chair | Stewart Gubler – Member at Large | Blain McNabb – Member at Large</p>
+        <p>Board members volunteer their time to serve the Indian Hills neighborhood by building community, addressing neighborhood concerns, and representing residents in discussions with the City of Lawrence and other organizations. Volunteering is one of the most meaningful ways neighbors can give back to their community, and we are incredibly fortunate to have residents willing to dedicate their time, talents, and energy to helping make Indian Hills a great place to call home. Their service helps bring neighbors together, strengthen community connections, and ensure that our neighborhood continues to thrive for generations to come.</p>
+        <details class="event-details board-members-details">
+          <summary>View board roles and job duties</summary>
+          <p>Terms are one year, or until a successor takes office.</p>
+          <div class="board-members-table-wrap">
+            <table class="board-members-table">
+              <thead>
+                <tr>
+                  <th scope="col">Office</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Duties</th>
+                  <th scope="col">Date Elected</th>
+                  <th scope="col">Term Expires</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">President</th>
+                  <td>Angie West</td>
+                  <td>Leads the Board and runs Board and general meetings and is the main spokesperson for the neighborhood with the City, partner organizations and the media.</td>
+                  <td>11/10/2026</td>
+                  <td>11/10/2027</td>
+                </tr>
+                <tr>
+                  <th scope="row">Secretary</th>
+                  <td>Laura Gloeckner</td>
+                  <td>Records and distributes meeting minutes, keeps the official records and bylaws, and sends meeting notices.</td>
+                  <td>11/10/2026</td>
+                  <td>11/10/2027</td>
+                </tr>
+                <tr>
+                  <th scope="row">Treasurer</th>
+                  <td>Daniel Amberg</td>
+                  <td>Manages the Association's funds, including voluntary contributions, donations, the budget and bank accounts, and gives financial reports at meetings.</td>
+                  <td>11/10/2026</td>
+                  <td>11/10/2027</td>
+                </tr>
+                <tr>
+                  <th scope="row">Beautification and Green Space Chair</th>
+                  <td>Katie Gannaway</td>
+                  <td>Leads projects that improve shared spaces, such as entrance signs, plantings and trees.</td>
+                  <td>11/10/2026</td>
+                  <td>11/10/2027</td>
+                </tr>
+                <tr>
+                  <th scope="row">Member at Large</th>
+                  <td>Stewart Gubler</td>
+                  <td>Represents the general membership and helps with projects and committees as needed.</td>
+                  <td>11/10/2026</td>
+                  <td>11/10/2027</td>
+                </tr>
+                <tr>
+                  <th scope="row">Member at Large</th>
+                  <td>Blain McNabb</td>
+                  <td>Represents the general membership and helps with projects and committees as needed.</td>
+                  <td>11/10/2026</td>
+                  <td>11/10/2027</td>
+                </tr>
+                <tr>
+                  <th scope="row">President-Elect</th>
+                  <td>Vacant</td>
+                  <td>Supports the President, fills in when the President is unavailable, and becomes President the following year.</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                </tr>
+                <tr>
+                  <th scope="row">Communications Director</th>
+                  <td>Vacant</td>
+                  <td>Manages the newsletter, website, social media and email updates.</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                </tr>
+                <tr>
+                  <th scope="row">Events &amp; Social Chair</th>
+                  <td>Vacant</td>
+                  <td>Plans neighborhood gatherings, welcomes new residents and recruits volunteers.</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                </tr>
+                <tr>
+                  <th scope="row">Safety &amp; City Liaison</th>
+                  <td>Vacant</td>
+                  <td>Connects the neighborhood with the city, LAN and local agencies on traffic, zoning and public safety.</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                </tr>
+                <tr>
+                  <th scope="row">Block Captain Coordinator</th>
+                  <td>Vacant</td>
+                  <td>Builds a network of volunteer block captains who share news street by street.</td>
+                  <td>&mdash;</td>
+                  <td>&mdash;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Updated 11/24/2026</strong></p>
+        </details>
+      </section>
+
     </main>
 
     <nav class="section-nav section-nav--footer" aria-label="Footer navigation">
@@ -914,7 +1068,7 @@
       <a href="#meetings">Meetings</a>
       <a href="#calendar">Calendar</a>
       <a href="#survey">Survey</a>
-      <a href="#board-elections">Elections</a>
+      <a href="#board-members">Board Members</a>
       <a href="#listserv">ListServ</a>
       <a href="#archive">Archive</a>
     </nav>
@@ -922,9 +1076,12 @@
 
     <footer class="site-footer">
       <div class="owner">
-        <p class="footer-title">Indian Hills Neighborhood Association</p>
-        <p>Lawrence, Kansas</p>
+        <p class="footer-title">Indian Hills Neighborhood Association | Lawrence, Kansas</p>
       </div>
+      <p class="footer-board-roster">
+        <strong>IHNA Board Members</strong>
+        Angie West - President | Laura Gloeckner - Secretary | Daniel Amberg – Treasurer | Katie Gannaway – Beautification and Green Space Chair | Stewart Gubler – Member at Large | Blain McNabb – Member at Large
+      </p>
       <div class="footer-links">
         <a href="https://github.com/IndianHillsLawrence/indian-hills-lawrence-website" target="_blank" rel="noopener noreferrer" aria-label="Indian Hills Neighborhood Association website repository on GitHub (opens in a new tab)">
           <img class="footer-link-icon" src="images/icons/github.svg" alt="">
